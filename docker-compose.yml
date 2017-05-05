@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  web:
+    image: stono/fuckingobvious.com
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+    environment:
+      - HE_SESSION_SECRET
+      - NODE_ENV=prod
+      - DEBUG
+    ports:
+      - 5000:5000
+
+  redis:
+    image: redis:alpine
+    restart: always
