@@ -6,6 +6,10 @@ services:
 
 language: node_js
 
+env:
+  global:
+    - HE_SESSION_SECRET=test-sessionsecret
+
 node_js:
   - 7
 
