@@ -1,8 +1,8 @@
 FROM centos:7
 MAINTAINER Karl Stoney <me@karlstoney.com>
 
-RUN groupadd hawkeye && \
-    useradd -g hawkeye hawkeye
+RUN groupadd obvious && \
+    useradd -g obvious obvious
 
 # Get nodejs repos
 RUN curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
@@ -15,7 +15,7 @@ RUN yum -y -q update && \
               ruby rubygemsi nodejs && \
     yum -y -q clean all
 
-# Install hawkeye
+# Install obvious
 RUN mkdir -p /app
 WORKDIR /app
 EXPOSE 5000
@@ -28,8 +28,8 @@ RUN cd /app && \
 
 COPY ./ /app
 
-RUN chown hawkeye:hawkeye /app
+RUN chown obvious:obvious /app
 
 RUN npm run assets
-RUN find . -type d \( -path ./node_modules \) -prune -o -exec chown hawkeye:hawkeye {} \;
-USER hawkeye
+RUN find . -type d \( -path ./node_modules \) -prune -o -exec chown obvious:obvious {} \;
+USER obvious

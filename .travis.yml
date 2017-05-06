@@ -25,4 +25,4 @@ after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker pull stono/fuckingobvious.com:latest
   - docker build -f Dockerfile -t stono/fuckingobvious.com --cache-from stono/fuckingobvious.com .
-  - docker push stono/hawkeye.ninja:latest
+  - docker push stono/fuckingobvious.com:latest
